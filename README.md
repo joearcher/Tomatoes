@@ -31,11 +31,11 @@ Add your api key to `tomatoes.php`
 
 Available endpoints:
 
-*	Search - http://api.rottentomatoes.com/api/public/v1.0/movies.json
-*	Movie info - http://api.rottentomatoes.com/api/public/v1.0/movies/[movie_id].json
-*	Movie cast - http://api.rottentomatoes.com/api/public/v1.0/movies/[movie_id]/cast.json
-*	Movie reviews - http://api.rottentomatoes.com/api/public/v1.0/movies/[movie_id]/reviews.json
-*	Similar movies - http://api.rottentomatoes.com/api/public/v1.0/movies/[movie_id]/similar.json
+*	Search - api.rottentomatoes.com/api/public/v1.0/movies.json
+*	Movie info - api.rottentomatoes.com/api/public/v1.0/movies/[movie_id].json
+*	Movie cast - api.rottentomatoes.com/api/public/v1.0/movies/[movie_id]/cast.json
+*	Movie reviews - api.rottentomatoes.com/api/public/v1.0/movies/[movie_id]/reviews.json
+*	Similar movies - api.rottentomatoes.com/api/public/v1.0/movies/[movie_id]/similar.json
 
 All requests return an `array()`.
 
