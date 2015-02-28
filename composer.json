@@ -1,0 +1,21 @@
+{
+    "name": "joearcher/tomatoes",
+    "description": "Rotten Tomatoes API wrapper for Laravel 5",
+    "license": "MIT",
+    "require": {
+        "laravel/framework": "5.0.*",
+        "guzzlehttp/guzzle": "~5.2"
+    },
+     "autoload": {
+        "psr-4": {
+            "Joearcher\\Tomatoes\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Joe Archer",
+            "email": "joe.archer@gmail.com"
+        }
+    ],
+     "minimum-stability": "dev"
+}
