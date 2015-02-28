@@ -2,5 +2,5 @@
 
 return [
 	
-	'apikey' => ''
+	'apikey' => '<Your API key here>'
 ];
