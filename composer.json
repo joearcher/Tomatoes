@@ -2,11 +2,11 @@
     "name": "joearcher/tomatoes",
     "description": "Rotten Tomatoes API wrapper for Laravel 5",
     "license": "MIT",
-    "type": "API wrapper",
+    "type": "API",
     "keywords": [
-        "API",
-        "wrapper",
-        "movies"
+        "API wrapper",
+        "Rotten Tomatoes",
+        "movie search"
     ],
     "require": {
         "laravel/framework": "5.0.*",
