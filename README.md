@@ -4,7 +4,7 @@ Simple Rotten Tomatoes API wrapper for Laravel 5
 ### Setup
 Require this package in composer.json and run `composer update`
 
-    "joearcher/tomatoes": "0.1.*"
+    "joearcher/tomatoes": "dev-master"
 
 After updating add the ServiceProvider the the providers array in `app/config/app.php`
 
