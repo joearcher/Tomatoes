@@ -4,9 +4,9 @@
     "license": "MIT",
     "type": "API wrapper",
     "keywords": [
-        "API wrapper",
-        "Rotten Tomatoes",
-        "movie search"
+        "API",
+        "wrapper",
+        "movies"
     ],
     "require": {
         "laravel/framework": "5.0.*",
