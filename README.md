@@ -4,28 +4,31 @@ Simple Rotten Tomatoes API wrapper for Laravel 5
 ### Setup
 Require this package in composer.json and run `composer update`
 
-    "joearcher/tomatoes": "dev-master"
-
+```javascript
+"joearcher/tomatoes": "dev-master"
+```
 After updating add the ServiceProvider the the providers array in `app/config/app.php`
 
-    'Joearcher\Tomatoes\TomatoesServiceProvider',
-
+```php
+'Joearcher\Tomatoes\TomatoesServiceProvider',
+```
 And then you can add the facade to the Facades array
 
-    'Tomatoes' =>	'Joearcher\Tomatoes\Facades\Tomatoes',
-
+```php
+'Tomatoes' =>	'Joearcher\Tomatoes\Facades\Tomatoes',
+```
 Publish the config
 
-    artisan vendor:publish
+```console
+artisan vendor:publish
+```
 
 This creates a `tomatoes.php` file in `app/config`
 
 Add your api key to `tomatoes.php`
-
-    'apikey' => '<Your API key here>'
-
-
-
+```php
+'apikey' => '<Your API key here>'
+```
 
 ## Usage
 
@@ -46,7 +49,7 @@ Search queries can be returned as pages of results, pagination can be performed 
 
 Performing a basic search:
 
-```PHP
+```php
 Tomatoes::search("Terminator");
 ```
 
