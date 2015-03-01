@@ -46,14 +46,17 @@ Search queries can be returned as pages of results, pagination can be performed 
 
 Performing a basic search:
 
-    Tomatoes::search("Terminator");
-
+```php
+Tomatoes::search("Terminator");
+```
 Will return all results for the given search term.
 
 
 To search for the term "war" limiting to 10 results per page and viewing page 2 of the results:
 
-    Tomatoes::search("war",10,2);
+```php
+Tomatoes::search("war",10,2);
+```
 
 **Results are ordered by most recent release date first, this is set by the API and cannot be changed.**
 
@@ -63,8 +66,9 @@ To search for the term "war" limiting to 10 results per page and viewing page 2 
 ## Movie info
 Further information on a specific movie by it's ID:
 
-    Tomatoes::movie(771245718);
-
+```php
+Tomatoes::movie(771245718);
+```
 Will return the detailed information for 'Django Unchained'
 
 
@@ -72,12 +76,13 @@ Will return the detailed information for 'Django Unchained'
 ## Other info
 The remaining endpoints take the same format:
 
-    Tomatoes::cast(771245718);
+```php
+Tomatoes::cast(771245718);
 
-    Tomatoes::reviews(771245718);
+Tomatoes::reviews(771245718);
 
-    Tomatoes::similar(771245718);
-
+Tomatoes::similar(771245718);
+```
 
 
 ## Thanks
