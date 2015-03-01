@@ -46,9 +46,10 @@ Search queries can be returned as pages of results, pagination can be performed 
 
 Performing a basic search:
 
-```php
+```PHP
 Tomatoes::search("Terminator");
 ```
+
 Will return all results for the given search term.
 
 
