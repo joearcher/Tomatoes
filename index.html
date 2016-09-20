@@ -1,1 +1,138 @@
-Hello!
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Tomatoes by joearcher</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Tomatoes</h1>
+        <h2>Rotten Tomatoes API wrapper for Laravel 5</h2>
+        <a href="https://github.com/joearcher/Tomatoes" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="tomatoes" class="anchor" href="#tomatoes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tomatoes</h1>
+
+<p>Simple Rotten Tomatoes API wrapper for Laravel 5</p>
+
+<h3>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup</h3>
+
+<p>Require this package in composer.json and run <code>composer update</code></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-s"><span class="pl-pds">"</span>joearcher/tomatoes<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>dev-master<span class="pl-pds">"</span></span></pre></div>
+
+<p>After updating add the ServiceProvider the the providers array in <code>app/config/app.php</code></p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-s"><span class="pl-pds">'</span>Joearcher\Tomatoes\TomatoesServiceProvider<span class="pl-pds">'</span></span>,</span></pre></div>
+
+<p>And then you can add the facade to the Facades array</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-s"><span class="pl-pds">'</span>Tomatoes<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span>   <span class="pl-s"><span class="pl-pds">'</span>Joearcher\Tomatoes\Facades\Tomatoes<span class="pl-pds">'</span></span>,</span></pre></div>
+
+<p>Publish the config</p>
+
+<div class="highlight highlight-text-shell-session"><pre><span class="pl-mo">artisan vendor:publish</span></pre></div>
+
+<p>This creates a <code>tomatoes.php</code> file in <code>app/config</code></p>
+
+<p>Add your api key to <code>tomatoes.php</code></p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-s"><span class="pl-pds">'</span>apikey<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;Your API key here&gt;<span class="pl-pds">'</span></span></span></pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Available endpoints:</p>
+
+<ul>
+<li>  Search - api.rottentomatoes.com/api/public/v1.0/movies.json</li>
+<li>  Movie info - api.rottentomatoes.com/api/public/v1.0/movies/[movie_id].json</li>
+<li>  Movie cast - api.rottentomatoes.com/api/public/v1.0/movies/[movie_id]/cast.json</li>
+<li>  Movie reviews - api.rottentomatoes.com/api/public/v1.0/movies/[movie_id]/reviews.json</li>
+<li>  Similar movies - api.rottentomatoes.com/api/public/v1.0/movies/[movie_id]/similar.json</li>
+</ul>
+
+<p>All requests return an <code>array()</code>.</p>
+
+<h2>
+<a id="search" class="anchor" href="#search" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Search</h2>
+
+<p>Search queries can be returned as pages of results, pagination can be performed with the 2nd and 3rd parameters, though they are optional.</p>
+
+<p>Performing a basic search:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Tomatoes</span><span class="pl-k">::</span>search(<span class="pl-s"><span class="pl-pds">"</span>Terminator<span class="pl-pds">"</span></span>);</span></pre></div>
+
+<p>Will return all results for the given search term.</p>
+
+<p>To search for the term "war" limiting to 10 results per page and viewing page 2 of the results:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Tomatoes</span><span class="pl-k">::</span>search(<span class="pl-s"><span class="pl-pds">"</span>war<span class="pl-pds">"</span></span>,<span class="pl-c1">10</span>,<span class="pl-c1">2</span>);</span></pre></div>
+
+<p><strong>Results are ordered by most recent release date first, this is set by the API and cannot be changed.</strong></p>
+
+<h2>
+<a id="movie-info" class="anchor" href="#movie-info" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Movie info</h2>
+
+<p>Further information on a specific movie by it's ID:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Tomatoes</span><span class="pl-k">::</span>movie(<span class="pl-c1">771245718</span>);</span></pre></div>
+
+<p>Will return the detailed information for 'Django Unchained'</p>
+
+<h2>
+<a id="other-info" class="anchor" href="#other-info" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other info</h2>
+
+<p>The remaining endpoints take the same format:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Tomatoes</span><span class="pl-k">::</span>cast(<span class="pl-c1">771245718</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c1">Tomatoes</span><span class="pl-k">::</span>reviews(<span class="pl-c1">771245718</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c1">Tomatoes</span><span class="pl-k">::</span>similar(<span class="pl-c1">771245718</span>);</span></pre></div>
+
+<h2>
+<a id="thanks" class="anchor" href="#thanks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Thanks</h2>
+
+<p>Made possible by the awesome <a href="https://github.com/guzzle/guzzle">Guzzle Http client</a></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/joearcher/Tomatoes/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/joearcher/Tomatoes/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/joearcher/Tomatoes"></a> is maintained by <a href="https://github.com/joearcher">joearcher</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
